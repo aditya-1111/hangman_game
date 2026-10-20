@@ -1,6 +1,19 @@
 const r = require("raylib");
 const { words } = require("./data");
 
+function createRandomWord(data) {
+    const keys = Object.keys(data);
+    const categoryIdx = Math.floor(Math.random() * keys.length);
+
+    const key = keys[categoryIdx];
+    const words = data[key];
+
+    const wordIdx = Math.floor(Math.random() * words.length);
+    const word = words[wordIdx];
+
+    return word;
+}
+
 function running() {
     return !r.WindowShouldClose();
 }
@@ -13,13 +26,10 @@ function setup() {
         fps: 50
     }
 
+    const category = "household";
     // const wordData = {
-    //     category: "household",
     //     word: Math.random() * words[category]
     // }
-    console.log(words[category]);
-
-
 
     r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(screen.width, screen.height, screen.title);
