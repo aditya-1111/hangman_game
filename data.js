@@ -35,7 +35,6 @@ const words = {
   clothing: [
     "Jacket",
     "Shorts",
-    "Blouse",
     "Wallet",
     "Gloves"
   ],
@@ -62,7 +61,6 @@ const words = {
 
   travel: [
     "Ticket",
-    "Trolley"
   ]
 };
 
