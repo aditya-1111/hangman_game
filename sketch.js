@@ -11,7 +11,7 @@ function createRandomWord(data) {
     const wordIdx = Math.floor(Math.random() * words.length);
     const word = words[wordIdx];
 
-    return word;
+    return { category: key, word };
 }
 
 function running() {
@@ -20,13 +20,37 @@ function running() {
 
 function setup() {
     const screen = {
-        width: 800,
+        width: 900,
         height: 600,
         title: "Hangman",
         fps: 50
     }
 
-    const word = createRandomWord(words);
+    const data = createRandomWord(words);
+
+    const title = {
+        text: data.category,
+        pos: {
+            x: 200,
+            y: 50,
+        },
+        size: 30,
+    }
+
+    const font = r.GetFontDefault();
+
+    const centerLine = {
+        start: {
+            x: screen.width / 1.55,
+            y: 0,
+        },
+        end: {
+            x: screen.width / 1.55,
+            y: screen.height
+        },
+        thick: 10,
+        color: r.BLACK,
+    }
 
     r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(screen.width, screen.height, screen.title);
@@ -34,18 +58,34 @@ function setup() {
 
     return {
         screen,
+        data,
+        title,
+        font,
+        centerLine
     };
 }
 
-function update() {
+function update(w) {
     // change the state
 }
 
-function draw() {
+function draw(w) {
+    const wordData = w.wordData;
+    const title = w.title;
+    const centerLine = w.centerLine;
+
     r.BeginDrawing();
 
-    r.ClearBackground(r.BLACK);
+    r.ClearBackground(r.WHITE);
 
+    r.DrawLineEx(centerLine.start, centerLine.end, centerLine.thick, centerLine.color);
+
+    r.DrawTextEx(
+        w.font,
+        `${title.text}`,
+        title.pos,
+        title.size, 3, r.BLACK
+    )
 
     r.EndDrawing();
 }
