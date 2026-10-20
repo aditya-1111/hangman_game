@@ -26,10 +26,7 @@ function setup() {
         fps: 50
     }
 
-    const category = "household";
-    // const wordData = {
-    //     word: Math.random() * words[category]
-    // }
+    const word = createRandomWord(words);
 
     r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(screen.width, screen.height, screen.title);
