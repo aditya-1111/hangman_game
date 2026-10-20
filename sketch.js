@@ -1,5 +1,5 @@
 const r = require("raylib");
-const d = require("./data");
+const { words } = require("./data");
 
 function running() {
     return !r.WindowShouldClose();
@@ -12,6 +12,14 @@ function setup() {
         title: "Hangman",
         fps: 50
     }
+
+    // const wordData = {
+    //     category: "household",
+    //     word: Math.random() * words[category]
+    // }
+    console.log(words[category]);
+
+
 
     r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(screen.width, screen.height, screen.title);
