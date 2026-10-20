@@ -66,6 +66,6 @@ const words = {
   ]
 };
 
-moudle.exports = {
+module.exports = {
   words,
 }

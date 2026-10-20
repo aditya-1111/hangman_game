@@ -13,12 +13,9 @@ function setup() {
         fps: 50
     }
 
-    console.log(d);
-
-
     r.SetTraceLogLevel(r.LOG_NONE);
-    r.InitWindow(WIDTH, HEIGHT, TITLE);
-    r.SetTargetFPS(FPS)
+    r.InitWindow(screen.width, screen.height, screen.title);
+    r.SetTargetFPS(screen.fps)
 
     return {
         screen,
@@ -34,7 +31,6 @@ function draw() {
 
     r.ClearBackground(r.BLACK);
 
-    r.DrawRectangle(0, 0, 100, 100, r.RED);
 
     r.EndDrawing();
 }
